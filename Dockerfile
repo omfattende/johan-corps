@@ -17,8 +17,22 @@ WORKDIR /var/www
 # Copiar archivos del backend
 COPY backend/ .
 
+# Configurar SQLite forzadamente
+RUN echo "DB_CONNECTION=sqlite" > .env \
+    && echo "DB_DATABASE=/var/www/storage/database.sqlite" >> .env \
+    && echo "APP_NAME=JohanCorps" >> .env \
+    && echo "APP_ENV=production" >> .env \
+    && echo "APP_DEBUG=false" >> .env \
+    && echo "BROADCAST_DRIVER=log" >> .env \
+    && echo "CACHE_DRIVER=file" >> .env \
+    && echo "SESSION_DRIVER=file" >> .env \
+    && echo "QUEUE_DRIVER=sync" >> .env
+
 # Crear directorios necesarios
 RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database
+
+# Crear archivo SQLite vacío
+RUN touch /var/www/storage/database.sqlite
 
 # Instalar dependencias de Composer
 RUN composer install --optimize-autoloader --no-dev --no-interaction
