@@ -12,7 +12,7 @@ import { AuthService } from '../../core/services/auth.service';
       <div class="nav-container">
         <a routerLink="/" class="brand">
           <span class="brand-icon">🔧</span>
-          <span class="brand-text">Johan Corps <span class="accent">(Inc)</span></span>
+          <span class="brand-text">INN<span class="accent">TECH</span></span>
         </a>
         <ul class="nav-links">
           <li><a routerLink="/talleres" routerLinkActive="active">Talleres</a></li>
