@@ -2,30 +2,23 @@
   "version": 2,
   "routes": [
     {
-      "src": "/(main|polyfills|styles|chunk-[A-Z0-9]+)\\.(js|css|mjs)",
-      "dest": "/$1.$2",
+      "src": "/(.*\\.js)",
+      "dest": "/$1",
       "headers": {
         "Content-Type": "application/javascript"
       }
     },
     {
-      "src": "/(.*\\.(js|css|ico|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|eot))",
+      "src": "/(.*\\.css)",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*\\.(ico|png|jpg|jpeg|gif|webp|svg|woff|woff2|ttf|eot))",
       "dest": "/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/**/*.js",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/javascript"
-        }
-      ]
     }
   ]
 }
