@@ -19,8 +19,11 @@ COPY . .
 # Instalar dependencias
 RUN composer install --optimize-autoloader --no-dev
 
+# Crear directorios si no existen
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database
+
 # Permisos
-RUN chmod -R 775 storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache database
 
 # Puerto
 EXPOSE 10000
