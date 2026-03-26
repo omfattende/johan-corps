@@ -23,7 +23,7 @@ RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framewor
 # Crear archivo SQLite vacío
 RUN touch /var/www/storage/database.sqlite
 
-# Instalar dependencias de Composer (sin scripts para evitar problemas de caché)
+# Instalar dependencias de Composer
 RUN composer install --optimize-autoloader --no-dev --no-interaction --no-scripts
 
 # Permisos
@@ -33,8 +33,7 @@ RUN chmod -R 775 storage bootstrap/cache database
 EXPOSE 10000
 
 # Script de inicio
-CMD rm -f bootstrap/cache/*.php \
-    && echo "APP_NAME=JohanCorps" > .env \
+CMD echo "APP_NAME=JohanCorps" > .env \
     && echo "APP_ENV=production" >> .env \
     && echo "APP_DEBUG=false" >> .env \
     && echo "APP_KEY=${APP_KEY}" >> .env \
@@ -46,8 +45,5 @@ CMD rm -f bootstrap/cache/*.php \
     && echo "SESSION_DRIVER=file" >> .env \
     && echo "QUEUE_DRIVER=sync" >> .env \
     && echo "CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}" >> .env \
-    && php artisan config:clear \
-    && php artisan cache:clear \
-    && php artisan config:cache \
     && php artisan migrate --force --no-interaction \
     && php artisan serve --host 0.0.0.0 --port 10000
