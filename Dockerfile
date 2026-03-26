@@ -17,17 +17,6 @@ WORKDIR /var/www
 # Copiar archivos del backend
 COPY backend/ .
 
-# Configurar SQLite forzadamente
-RUN echo "DB_CONNECTION=sqlite" > .env \
-    && echo "DB_DATABASE=/var/www/storage/database.sqlite" >> .env \
-    && echo "APP_NAME=JohanCorps" >> .env \
-    && echo "APP_ENV=production" >> .env \
-    && echo "APP_DEBUG=false" >> .env \
-    && echo "BROADCAST_DRIVER=log" >> .env \
-    && echo "CACHE_DRIVER=file" >> .env \
-    && echo "SESSION_DRIVER=file" >> .env \
-    && echo "QUEUE_DRIVER=sync" >> .env
-
 # Crear directorios necesarios
 RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs bootstrap/cache database
 
@@ -43,5 +32,19 @@ RUN chmod -R 775 storage bootstrap/cache database
 # Puerto
 EXPOSE 10000
 
-# Comando de inicio
-CMD php artisan migrate --force --no-interaction && php artisan serve --host 0.0.0.0 --port 10000
+# Script de inicio que configura el .env y arranca el servidor
+CMD echo "APP_NAME=JohanCorps" > .env \
+    && echo "APP_ENV=production" >> .env \
+    && echo "APP_DEBUG=false" >> .env \
+    && echo "APP_KEY=${APP_KEY}" >> .env \
+    && echo "APP_URL=${APP_URL}" >> .env \
+    && echo "DB_CONNECTION=sqlite" >> .env \
+    && echo "DB_DATABASE=/var/www/storage/database.sqlite" >> .env \
+    && echo "BROADCAST_DRIVER=log" >> .env \
+    && echo "CACHE_DRIVER=file" >> .env \
+    && echo "SESSION_DRIVER=file" >> .env \
+    && echo "QUEUE_DRIVER=sync" >> .env \
+    && echo "CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}" >> .env \
+    && php artisan config:cache \
+    && php artisan migrate --force --no-interaction \
+    && php artisan serve --host 0.0.0.0 --port 10000
