@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: johan-corps-backend
+    env: php
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+      php artisan migrate --force
+      php artisan db:seed --force
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_URL
+        value: https://johan-corps-backend.onrender.com
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: database/database.sqlite
+      - key: SANCTUM_STATEFUL_DOMAINS
+        value: johan-corps-frontend.vercel.app
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://johan-corps-frontend.vercel.app
+    healthCheckPath: /up

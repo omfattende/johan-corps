@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class StoreReview extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'store_id',
+        'rating',
+        'comment',
+    ];
+
+    protected $casts = [
+        'rating' => 'integer',
+    ];
+
+    // Relaciones
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    // Boot para actualizar rating de la tienda
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($review) {
+            $review->store->updateRating();
+        });
+
+        static::updated(function ($review) {
+            $review->store->updateRating();
+        });
+
+        static::deleted(function ($review) {
+            $review->store->updateRating();
+        });
+    }
+}
