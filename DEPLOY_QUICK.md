@@ -20,7 +20,7 @@ npm run build
 4. Settings:
    - **Root Directory**: `frontend`
    - **Build Command**: `npm run build`
-   - **Output**: `dist/autostock-frontend/browser`
+   - **Output**: `dist/mecanica-web-frontend/browser`
 5. Click "Deploy"
 
 **Listo!** Tu frontend estará en: `https://TU_PROYECTO.vercel.app`

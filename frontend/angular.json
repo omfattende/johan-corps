@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "autostock-frontend": {
+    "mecanica-web-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/autostock-frontend",
+            "outputPath": "dist/mecanica-web-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "autostock-frontend:build:production"
+              "buildTarget": "mecanica-web-frontend:build:production"
             },
             "development": {
-              "buildTarget": "autostock-frontend:build:development"
+              "buildTarget": "mecanica-web-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"

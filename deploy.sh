@@ -23,7 +23,7 @@ deploy_frontend() {
     npm run build
     
     echo "Frontend build complete!"
-    echo "Output: frontend/dist/autostock-frontend/browser"
+    echo "Output: frontend/dist/mecanica-web-frontend/browser"
     cd ..
 }
 
@@ -67,7 +67,7 @@ case "${1:-all}" in
         echo ""
         echo "Archivos listos para subir:"
         echo "   - Backend: ./backend/ (todo excepto vendor/, node_modules/)"
-        echo "   - Frontend: ./frontend/dist/autostock-frontend/browser/"
+        echo "   - Frontend: ./frontend/dist/mecanica-web-frontend/browser/"
         ;;
     *)
         echo "Uso: $0 [frontend|backend|all]"

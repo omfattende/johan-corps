@@ -4,7 +4,7 @@ Write-Host "===============================" -ForegroundColor Cyan
 Write-Host ""
 
 # Verificar que existe build
-if (!(Test-Path "frontend\dist\autostock-frontend\browser\index.html")) {
+if (!(Test-Path "frontend\dist\mecanica-web-frontend\browser\index.html")) {
     Write-Host "No se encontró el build. Compilando..." -ForegroundColor Red
     cd frontend
     npm run build
@@ -32,7 +32,7 @@ Write-Host "Cuando te pregunte, selecciona:" -ForegroundColor Cyan
 Write-Host "  - Framework: Angular" -ForegroundColor White
 Write-Host "  - Root Directory: frontend" -ForegroundColor White
 Write-Host "  - Build Command: npm run build" -ForegroundColor White
-Write-Host "  - Output Directory: dist/autostock-frontend/browser" -ForegroundColor White
+Write-Host "  - Output Directory: dist/mecanica-web-frontend/browser" -ForegroundColor White
 Write-Host ""
 
 npx vercel --prod
