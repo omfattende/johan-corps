@@ -22,7 +22,7 @@ import { Workshop, WorkshopReview } from '../../../core/models/models';
           <div class="detail-header">
             <div>
               <h1>{{ workshop.name }}</h1>
-              <p>📍 {{ workshop.address }}</p>
+              <p>{{ workshop.address }}</p>
             </div>
             <div class="rating-big">
               <div class="rating-num">{{ workshop.rating | number:'1.1-1' }}</div>
@@ -43,7 +43,7 @@ import { Workshop, WorkshopReview } from '../../../core/models/models';
               <h2>Servicios ofrecidos</h2>
               <div class="services-grid">
                 <div class="service-item" *ngFor="let s of workshop.services">
-                  <span class="service-icon">🔧</span>
+                  <span class="service-icon">S</span>
                   <div>
                     <div class="service-name">{{ s.name }}</div>
                     <div class="service-cat">{{ s.category }}</div>
@@ -66,7 +66,7 @@ import { Workshop, WorkshopReview } from '../../../core/models/models';
               <div class="review-form" *ngIf="auth.isLoggedIn">
                 <h4>Deja tu reseña</h4>
                 <div class="star-select">
-                  <button *ngFor="let n of [1,2,3,4,5]" class="star-btn" [class.active]="newRating >= n" (click)="newRating = n">⭐</button>
+                  <button *ngFor="let n of [1,2,3,4,5]" class="star-btn" [class.active]="newRating >= n" (click)="newRating = n">*</button>
                 </div>
                 <textarea class="form-input" [(ngModel)]="newComment" placeholder="Escribe tu experiencia..." rows="3"></textarea>
                 <button class="btn btn-primary btn-sm" (click)="submitReview()" [disabled]="submitting || !newRating">
@@ -105,28 +105,28 @@ import { Workshop, WorkshopReview } from '../../../core/models/models';
             <div class="info-card">
               <h3>Información de contacto</h3>
               <div class="info-item" *ngIf="workshop.phone">
-                <span class="info-icon">📞</span>
+                <span class="info-icon">T</span>
                 <a [href]="'tel:'+workshop.phone">{{ workshop.phone }}</a>
               </div>
               <div class="info-item" *ngIf="workshop.whatsapp">
-                <span class="info-icon">💬</span>
+                <span class="info-icon">W</span>
                 <a [href]="'https://wa.me/52'+workshop.whatsapp" target="_blank">WhatsApp</a>
               </div>
               <div class="info-item" *ngIf="workshop.schedule">
-                <span class="info-icon">🕐</span>
+                <span class="info-icon">H</span>
                 <span>{{ workshop.schedule }}</span>
               </div>
               <div class="info-item" *ngIf="workshop.city">
-                <span class="info-icon">📍</span>
+                <span class="info-icon">L</span>
                 <span>{{ workshop.city }}</span>
               </div>
               <a *ngIf="workshop.whatsapp" [href]="'https://wa.me/52'+workshop.whatsapp" target="_blank" class="btn btn-primary" style="width:100%;margin-top:16px;justify-content:center">
-                💬 Contactar por WhatsApp
+                Contactar por WhatsApp
               </a>
               <a *ngIf="workshop.latitude && workshop.longitude"
                 [href]="'https://www.google.com/maps?q='+workshop.latitude+','+workshop.longitude"
                 target="_blank" class="btn btn-ghost" style="width:100%;margin-top:8px;justify-content:center">
-                🗺️ Ver en Google Maps
+                Ver en Google Maps
               </a>
             </div>
           </aside>
@@ -215,7 +215,7 @@ export class WorkshopDetailComponent implements OnInit {
 
   getStars(rating: number): string {
     const full = Math.round(rating);
-    return '⭐'.repeat(full) + '☆'.repeat(5 - full);
+    return '*'.repeat(full) + '-'.repeat(5 - full);
   }
 
   submitReview() {

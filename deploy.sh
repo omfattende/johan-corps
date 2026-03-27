@@ -1,53 +1,53 @@
 #!/bin/bash
 
-# Script de Deploy para Johan Corps (Inc)
+# Script de Deploy para Autostock
 # Uso: ./deploy.sh [frontend|backend|all]
 
 set -e
 
-echo "🚀 Johan Corps (Inc) - Deploy Script"
+echo "Autostock - Deploy Script"
 echo "===================================="
 
 # Función para deploy del frontend
 deploy_frontend() {
     echo ""
-    echo "📦 Deploying Frontend..."
+    echo "Deploying Frontend..."
     cd frontend
     
     # Instalar dependencias
-    echo "📥 Installing dependencies..."
+    echo "Installing dependencies..."
     npm install
     
     # Build de producción
-    echo "🔨 Building for production..."
+    echo "Building for production..."
     npm run build
     
-    echo "✅ Frontend build complete!"
-    echo "📁 Output: frontend/dist/mecanica-web-frontend/browser"
+    echo "Frontend build complete!"
+    echo "Output: frontend/dist/mecanica-web-frontend/browser"
     cd ..
 }
 
 # Función para deploy del backend
 deploy_backend() {
     echo ""
-    echo "⚙️  Deploying Backend..."
+    echo "Deploying Backend..."
     cd backend
     
     # Instalar dependencias de producción
-    echo "📥 Installing dependencies..."
+    echo "Installing dependencies..."
     composer install --no-dev --optimize-autoloader
     
     # Optimizaciones de Laravel
-    echo "⚡ Optimizing Laravel..."
+    echo "Optimizing Laravel..."
     php artisan config:cache
     php artisan route:cache
     php artisan view:cache
     
     # Migraciones
-    echo "🗄️  Running migrations..."
+    echo "Running migrations..."
     php artisan migrate --force
     
-    echo "✅ Backend ready!"
+    echo "Backend ready!"
     cd ..
 }
 
@@ -63,9 +63,9 @@ case "${1:-all}" in
         deploy_backend
         deploy_frontend
         echo ""
-        echo "🎉 Deploy completo!"
+        echo "Deploy completo!"
         echo ""
-        echo "📋 Archivos listos para subir:"
+        echo "Archivos listos para subir:"
         echo "   - Backend: ./backend/ (todo excepto vendor/, node_modules/)"
         echo "   - Frontend: ./frontend/dist/mecanica-web-frontend/browser/"
         ;;

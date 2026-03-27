@@ -1,9 +1,9 @@
-# 🚀 Guía de Deploy - Mecánica Web
+# Guía de Deploy - Autostock
 
 ## Estructura del Proyecto
 
 ```
-Mecanica-web/
+autostock/
 ├── backend/          # API Laravel + SQLite
 └── frontend/         # Angular SPA
 ```
@@ -17,7 +17,7 @@ La base de datos es **SQLite**, lo que facilita mucho el deploy - no necesitas c
 #### Configuración del archivo `.env`:
 
 ```env
-APP_NAME="Mecánica Web"
+APP_NAME="Autostock"
 APP_ENV=production
 APP_KEY=base64:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 APP_DEBUG=false
@@ -73,7 +73,7 @@ Ejemplo configuración Nginx:
 server {
     listen 80;
     server_name api.tudominio.com;
-    root /var/www/mecanica-web/backend/public;
+    root /var/www/autostock/backend/public;
     index index.php;
 
     location / {
@@ -196,7 +196,7 @@ Verificar que `CORS_ALLOWED_ORIGINS` incluye el dominio del frontend.
 
 | Tipo | Email | Contraseña |
 |------|-------|------------|
-| Admin | admin@mecanicaweb.mx | password123 |
+| Admin | admin@autostock.mx | password123 |
 | Cliente | juan@example.com | password123 |
 | Dueño Taller | carlos@garciamotors.com | password123 |
 | Dueño Refaccionaria | maria@autoparteshn.com | password123 |

@@ -33,7 +33,7 @@ RUN chmod -R 775 storage bootstrap/cache database
 EXPOSE 10000
 
 # Script de inicio
-CMD echo "APP_NAME=JohanCorps" > .env \
+CMD echo "APP_NAME=Autostock" > .env \
     && echo "APP_ENV=production" >> .env \
     && echo "APP_DEBUG=false" >> .env \
     && echo "APP_KEY=${APP_KEY}" >> .env \

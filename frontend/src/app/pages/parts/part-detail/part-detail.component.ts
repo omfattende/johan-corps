@@ -30,7 +30,7 @@ import { Part } from '../../../core/models/models';
               <h2>Compatibilidad</h2>
               <div class="compat-list">
                 <div class="compat-item" *ngFor="let v of part.vehicles">
-                  <span class="compat-icon">✅</span>
+                  <span class="compat-icon">OK</span>
                   <span>{{ v.brand }} {{ v.model }} {{ v.year }} — {{ v.engine }}</span>
                 </div>
               </div>
@@ -41,7 +41,7 @@ import { Part } from '../../../core/models/models';
               <div class="price-big">\${{ part.price | number }}</div>
               <div class="part-meta">
                 <div class="meta-row"><span>Marca</span><strong>{{ part.brand }}</strong></div>
-                <div class="meta-row"><span>Calificación</span><strong>⭐ {{ part.rating | number:'1.1-1' }}</strong></div>
+                <div class="meta-row"><span>Calificación</span><strong>{{ part.rating | number:'1.1-1' }}</strong></div>
                 <div class="meta-row"><span>Stock</span><strong [class.low]="part.stock < 5">{{ part.stock }} piezas</strong></div>
               </div>
               <div class="store-info">
@@ -50,7 +50,7 @@ import { Part } from '../../../core/models/models';
                 <div class="meta-row" *ngIf="part.store?.phone"><span>Contacto</span><strong>{{ part.store?.phone }}</strong></div>
                 <div class="meta-row" *ngIf="part.store?.address"><span>Dirección</span><strong>{{ part.store?.address }}</strong></div>
               </div>
-              <a *ngIf="part.store?.phone" [href]="'tel:'+part.store?.phone" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">📞 Consultar disponibilidad</a>
+              <a *ngIf="part.store?.phone" [href]="'tel:'+part.store?.phone" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px">Consultar disponibilidad</a>
             </div>
             <div class="alt-section" *ngIf="alternatives.length">
               <h4>Alternativas</h4>

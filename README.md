@@ -1,11 +1,11 @@
-# Mecánica Web
+# Autostock
 
 Plataforma web para encontrar talleres mecánicos confiables y refacciones compatibles con tu vehículo.
 
 ## Estructura
 
 ```
-Mecanica-web/
+autostock/
 ├── backend/     # API Laravel + PostgreSQL
 └── frontend/    # SPA Angular
 ```
@@ -16,7 +16,7 @@ Mecanica-web/
 
 Crea la base de datos en PostgreSQL:
 ```sql
-CREATE DATABASE mecanica_web;
+CREATE DATABASE autostock;
 ```
 
 Edita `backend/.env` y ajusta:
@@ -62,7 +62,7 @@ npm start
 |-------|-------|
 | Email | `juan@example.com` |
 | Contraseña | `password123` |
-| Admin | `admin@mecanicaweb.mx` / `password123` |
+| Admin | `admin@autostock.mx` / `password123` |
 
 ## Módulos
 

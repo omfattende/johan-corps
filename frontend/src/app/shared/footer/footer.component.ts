@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
       <div class="container">
         <div class="footer-grid">
           <div>
-            <div class="brand">🔧 INN<span>TECH</span></div>
+            <div class="brand">AS <span>AUTOSTOCK</span></div>
             <p>La plataforma para encontrar talleres confiables y refacciones compatibles con tu vehículo.</p>
           </div>
           <div>
@@ -63,7 +63,7 @@ import { RouterLink } from '@angular/router';
         </div>
         
         <div class="footer-bottom">
-          <p>© 2025 INNTECH — Todos los derechos reservados</p>
+          <p>© 2025 Autostock — Todos los derechos reservados</p>
         </div>
       </div>
     </footer>

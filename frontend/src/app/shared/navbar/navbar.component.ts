@@ -11,8 +11,8 @@ import { AuthService } from '../../core/services/auth.service';
     <nav class="navbar" [class.scrolled]="scrolled">
       <div class="nav-container">
         <a routerLink="/" class="brand">
-          <span class="brand-icon">🔧</span>
-          <span class="brand-text">INN<span class="accent">TECH</span></span>
+          <span class="brand-icon">AS</span>
+          <span class="brand-text">AUTO<span class="accent">STOCK</span></span>
         </a>
         <ul class="nav-links">
           <li><a routerLink="/talleres" routerLinkActive="active">Talleres</a></li>
@@ -28,7 +28,7 @@ import { AuthService } from '../../core/services/auth.service';
             <a routerLink="/auth/registro" class="btn btn-primary btn-sm">Registrarse</a>
           </ng-template>
         </div>
-        <button class="menu-toggle" (click)="menuOpen = !menuOpen">☰</button>
+        <button class="menu-toggle" (click)="menuOpen = !menuOpen">Menu</button>
       </div>
       <div class="mobile-menu" [class.open]="menuOpen">
         <a routerLink="/talleres" (click)="menuOpen=false">Talleres</a>

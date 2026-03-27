@@ -11,8 +11,8 @@
 
 ### Crear nuevo repositorio:
 1. Ve a https://github.com/new
-2. **Repository name**: `johan-corps`
-3. **Description**: `Johan Corps - Plataforma de talleres y refacciones`
+2. **Repository name**: `autostock`
+3. **Description**: `Autostock - Plataforma de talleres y refacciones`
 4. Deja en "Public" (gratis)
 5. NO marques "Add a README"
 6. Click **"Create repository"**
@@ -29,13 +29,13 @@ git init
 git add .
 
 # Crear commit
-git commit -m "Initial commit - Johan Corps ready for deploy"
+git commit -m "Initial commit - Autostock ready for deploy"
 
 # Renombrar rama
 git branch -M main
 
 # Conectar con GitHub (reemplaza TU_USUARIO con tu nombre de usuario)
-git remote add origin https://github.com/TU_USUARIO/johan-corps.git
+git remote add origin https://github.com/TU_USUARIO/autostock.git
 
 # Subir código
 git push -u origin main
@@ -43,7 +43,7 @@ git push -u origin main
 
 ## Verificar:
 
-Ve a `https://github.com/TU_USUARIO/johan-corps` y deberías ver todos los archivos.
+Ve a `https://github.com/TU_USUARIO/autostock` y deberías ver todos los archivos.
 
 ---
 

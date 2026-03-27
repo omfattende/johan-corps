@@ -1,23 +1,23 @@
 @echo off
-echo 🚀 Deploy a Vercel - Johan Corps
-echo =================================
+echo Deploy a Vercel - Autostock
+echo ===============================
 echo.
 
-echo 📦 Verificando build...
+echo Verificando build...
 if not exist "frontend\dist\mecanica-web-frontend\browser\index.html" (
-    echo ❌ Compilando frontend...
+    echo Compilando frontend...
     cd frontend
     call npm run build
     cd ..
 )
 
-echo 📤 Subiendo cambios a Git...
+echo Subiendo cambios a Git...
 git add .
 git commit -m "Prepare for deploy" 2>nul
 git push 2>nul
 
 echo.
-echo 🚀 Iniciando deploy en Vercel...
+echo Iniciando deploy en Vercel...
 echo Cuando te pregunte, selecciona:
 echo   - Framework: Angular
 echo   - Root Directory: frontend
@@ -28,5 +28,5 @@ echo.
 call npx vercel --prod
 
 echo.
-echo ✅ Deploy completado!
+echo Deploy completado!
 pause

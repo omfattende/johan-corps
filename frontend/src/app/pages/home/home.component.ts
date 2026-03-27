@@ -15,12 +15,12 @@ import { Workshop } from '../../core/models/models';
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="container hero-content">
-        <span class="hero-badge">🇲🇽 Plataforma automotriz mexicana</span>
+        <span class="hero-badge">Plataforma automotriz</span>
         <h1>Encuentra el taller y las refacciones que necesitas</h1>
         <p>Talleres mecánicos verificados, refacciones compatibles con tu vehículo y reseñas reales de usuarios.</p>
         <div class="search-bar">
           <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar por taller, servicio o ciudad..." (keyup.enter)="searchWorkshops()">
-          <button class="btn btn-primary" (click)="searchWorkshops()">🔍 Buscar</button>
+          <button class="btn btn-primary" (click)="searchWorkshops()">Buscar</button>
         </div>
         <div class="quick-filters">
           <button *ngFor="let cat of categories" class="chip" (click)="goToCategory(cat.value)">{{ cat.label }}</button>
@@ -42,11 +42,11 @@ import { Workshop } from '../../core/models/models';
           <div class="card workshop-card fade-in-up" *ngFor="let w of featuredWorkshops" [routerLink]="['/talleres', w.id]">
             <div class="card-img" [style.backgroundImage]="'url('+getImageUrl(w)+')'">
               <div class="card-overlay"></div>
-              <div class="card-rating">⭐ {{ w.rating | number:'1.1-1' }}</div>
+              <div class="card-rating">{{ w.rating | number:'1.1-1' }}</div>
             </div>
             <div class="card-body">
               <h3>{{ w.name }}</h3>
-              <p class="card-address">📍 {{ w.address }}</p>
+              <p class="card-address">{{ w.address }}</p>
               <div class="service-tags">
                 <span class="badge badge-primary" *ngFor="let s of (w.services || []).slice(0,3)">{{ s.name }}</span>
               </div>
@@ -66,7 +66,7 @@ import { Workshop } from '../../core/models/models';
       <div class="container">
         <div class="refac-grid">
           <div class="refac-text">
-            <span class="badge badge-warning">🔩 Nuevo</span>
+            <span class="badge badge-warning">Nuevo</span>
             <h2 class="section-title" style="margin-top:12px">Encuentra refacciones <span>compatibles</span></h2>
             <p>Selecciona tu vehículo y te mostramos exactamente qué refacciones son compatibles con tu carro. Precios de múltiples tiendas.</p>
             <a routerLink="/refacciones" class="btn btn-primary" style="margin-top:24px">Buscar refacciones →</a>
@@ -280,11 +280,11 @@ export class HomeComponent implements OnInit {
   fallbackImg = 'https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?w=400';
 
   categories = [
-    { label: '⚙️ Motor y afinación', value: 'Motor' },
-    { label: '🛑 Frenos', value: 'Frenos' },
-    { label: '⚡ Eléctrico', value: 'Eléctrico' },
-    { label: '🔩 Suspensión', value: 'Suspensión' },
-    { label: '🎨 Hojalatería', value: 'Hojalatería' },
+    { label: 'Motor y afinación', value: 'Motor' },
+    { label: 'Frenos', value: 'Frenos' },
+    { label: 'Eléctrico', value: 'Eléctrico' },
+    { label: 'Suspensión', value: 'Suspensión' },
+    { label: 'Hojalatería', value: 'Hojalatería' },
   ];
 
   steps = [
@@ -297,7 +297,7 @@ export class HomeComponent implements OnInit {
     { num: '6+', label: 'Talleres registrados' },
     { num: '12+', label: 'Refacciones disponibles' },
     { num: '22+', label: 'Vehículos compatibles' },
-    { num: '⭐ 4.4', label: 'Calificación promedio' },
+    { num: '4.4', label: 'Calificación promedio' },
   ];
 
   constructor(private workshopSvc: WorkshopService, private router: Router) {}

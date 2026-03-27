@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         // Admin
         $admin = User::create([
             'name' => 'Administrador',
-            'email' => 'admin@mecanicaweb.mx',
+            'email' => 'admin@autostock.mx',
             'password' => Hash::make('password123'),
             'role' => User::ROLE_ADMIN,
             'phone' => '55-0000-0000',

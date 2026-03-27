@@ -1,16 +1,16 @@
-# 🚀 Guía de Deploy - Johan Corps (Inc)
+# Guía de Deploy - Autostock
 
-## Opción 1: Vercel (Frontend) + Render (Backend) - RECOMENDADO ⭐
+## Opción 1: Vercel (Frontend) + Render (Backend) - RECOMENDADO
 
 ### Ventajas:
-- ✅ Gratis para proyectos pequeños
-- ✅ SSL automático
-- ✅ Deploy continuo desde GitHub
-- ✅ Muy fácil de configurar
+- Gratis para proyectos pequeños
+- SSL automático
+- Deploy continuo desde GitHub
+- Muy fácil de configurar
 
 ---
 
-## 📁 PREPARACIÓN INICIAL
+## PREPARACIÓN INICIAL
 
 ### 1. Subir a GitHub
 
@@ -18,17 +18,17 @@
 # En la carpeta raíz del proyecto
 git init
 git add .
-git commit -m "Initial commit - Johan Corps"
+git commit -m "Initial commit - Autostock"
 git branch -M main
 
 # Crear repositorio en GitHub y:
-git remote add origin https://github.com/TU_USUARIO/johan-corps.git
+git remote add origin https://github.com/TU_USUARIO/autostock.git
 git push -u origin main
 ```
 
 ---
 
-## 🎨 OPCIÓN A: DEPLOY EN VERCEL (Frontend)
+## OPCIÓN A: DEPLOY EN VERCEL (Frontend)
 
 ### Paso 1: Crear cuenta en Vercel
 1. Ve a https://vercel.com
@@ -36,7 +36,7 @@ git push -u origin main
 3. Click en "Add New Project"
 
 ### Paso 2: Importar proyecto
-1. Selecciona tu repositorio `johan-corps`
+1. Selecciona tu repositorio `autostock`
 2. En "Root Directory" escribe: `frontend`
 3. Framework Preset: `Angular`
 4. Build Command: `npm run build`
@@ -50,11 +50,11 @@ NODE_VERSION = 20
 ### Paso 4: Deploy
 Click en "Deploy" y espera ~2 minutos.
 
-**Tu frontend estará en:** `https://johan-corps-frontend.vercel.app`
+**Tu frontend estará en:** `https://autostock-frontend.vercel.app`
 
 ---
 
-## ⚙️ OPCIÓN B: DEPLOY EN RENDER (Backend)
+## OPCIÓN B: DEPLOY EN RENDER (Backend)
 
 ### Paso 1: Crear cuenta en Render
 1. Ve a https://render.com
@@ -64,7 +64,7 @@ Click en "Deploy" y espera ~2 minutos.
 1. Click "New" → "Web Service"
 2. Conecta tu repositorio GitHub
 3. Configuración:
-   - **Name**: `johan-corps-backend`
+   - **Name**: `autostock-backend`
    - **Root Directory**: `backend`
    - **Environment**: `PHP`
    - **Build Command**:
@@ -85,24 +85,24 @@ Click en "Deploy" y espera ~2 minutos.
 APP_ENV = production
 APP_DEBUG = false
 APP_KEY = (generar con: php artisan key:generate --show)
-APP_URL = https://johan-corps-backend.onrender.com
+APP_URL = https://autostock-backend.onrender.com
 
 DB_CONNECTION = sqlite
 DB_DATABASE = database/database.sqlite
 
-SANCTUM_STATEFUL_DOMAINS = johan-corps-frontend.vercel.app
-SESSION_DOMAIN = johan-corps-frontend.vercel.app
-CORS_ALLOWED_ORIGINS = https://johan-corps-frontend.vercel.app
+SANCTUM_STATEFUL_DOMAINS = autostock-frontend.vercel.app
+SESSION_DOMAIN = autostock-frontend.vercel.app
+CORS_ALLOWED_ORIGINS = https://autostock-frontend.vercel.app
 ```
 
 ### Paso 4: Deploy
 Click en "Create Web Service"
 
-**Tu backend estará en:** `https://johan-corps-backend.onrender.com`
+**Tu backend estará en:** `https://autostock-backend.onrender.com`
 
 ---
 
-## 🔗 CONECTAR FRONTEND CON BACKEND
+## CONECTAR FRONTEND CON BACKEND
 
 ### Actualizar URL del Backend en Vercel
 
@@ -110,7 +110,7 @@ Click en "Create Web Service"
 2. Settings → Environment Variables
 3. Agrega:
    ```
-   API_URL = https://johan-corps-backend.onrender.com/api
+   API_URL = https://autostock-backend.onrender.com/api
    ```
 4. Re-deploy: "Redeploy" en la última versión
 
@@ -119,7 +119,7 @@ Edita `frontend/src/environments/environment.prod.ts`:
 ```typescript
 export const environment = {
   production: true,
-  apiUrl: 'https://johan-corps-backend.onrender.com/api'
+  apiUrl: 'https://autostock-backend.onrender.com/api'
 };
 ```
 
@@ -132,7 +132,7 @@ git push
 
 ---
 
-## 🆓 OPCIÓN 2: NETLIFY (Frontend) + RAILWAY (Backend)
+## OPCIÓN 2: NETLIFY (Frontend) + RAILWAY (Backend)
 
 ### Netlify (Frontend)
 1. Ve a https://netlify.com
@@ -151,7 +151,7 @@ git push
 
 ---
 
-## 💰 OPCIÓN 3: HOSTING COMPARTIDO (cPanel)
+## OPCIÓN 3: HOSTING COMPARTIDO (cPanel)
 
 Para hosting tradicional como Hostinger, Bluehost, etc.
 
@@ -181,7 +181,7 @@ En el hosting, editar `.htaccess`:
 
 ---
 
-## 🖥️ OPCIÓN 4: VPS (DigitalOcean, AWS, Linode)
+## OPCIÓN 4: VPS (DigitalOcean, AWS, Linode)
 
 ### Requisitos del servidor:
 - Ubuntu 22.04 LTS
@@ -207,8 +207,8 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # Clonar proyecto
-git clone https://github.com/TU_USUARIO/johan-corps.git
-cd johan-corps
+git clone https://github.com/TU_USUARIO/autostock.git
+cd autostock
 
 # Backend
 cd backend
@@ -227,7 +227,7 @@ npm run build
 
 ---
 
-## ✅ CHECKLIST POST-DEPLOY
+## CHECKLIST POST-DEPLOY
 
 ### Verificar Backend:
 ```bash
@@ -244,7 +244,7 @@ curl https://TU_BACKEND_URL/api/vehicles/brands
 
 ---
 
-## 🐛 SOLUCIÓN DE PROBLEMAS
+## SOLUCIÓN DE PROBLEMAS
 
 ### Error: CORS
 Verificar `CORS_ALLOWED_ORIGINS` en backend coincida con la URL del frontend.
@@ -261,7 +261,7 @@ Las imágenes de Unsplash deben cargar. Si usas imágenes locales, súbelas al s
 
 ---
 
-## 📞 SOPORTE
+## SOPORTE
 
 Si tienes problemas con el deploy:
 1. Revisar logs en el dashboard de la plataforma
@@ -270,4 +270,4 @@ Si tienes problemas con el deploy:
 
 ---
 
-**¿Necesitas ayuda con algún paso específico?** 🚀
+**¿Necesitas ayuda con algún paso específico?**

@@ -11,7 +11,7 @@ import { AuthService } from '../../../core/services/auth.service';
   template: `
     <div class="auth-page">
       <div class="auth-card card">
-        <div class="auth-brand">🔧 Mecánica<span>Web</span></div>
+        <div class="auth-brand">AUTO<span>STOCK</span></div>
         <h1>Iniciar sesión</h1>
         <p class="auth-sub">Accede a tu cuenta para dejar reseñas y más</p>
         <form (ngSubmit)="submit()">

@@ -17,7 +17,7 @@ import { Workshop } from '../../../core/models/models';
         <p>Encuentra el mejor taller para tu vehículo</p>
         <div class="search-row">
           <input class="form-input" type="text" [(ngModel)]="filters.search" placeholder="Buscar por nombre o servicio..." (keyup.enter)="load()">
-          <button class="btn btn-primary" (click)="load()">🔍 Buscar</button>
+          <button class="btn btn-primary" (click)="load()">Buscar</button>
         </div>
       </div>
     </div>
@@ -38,13 +38,13 @@ import { Workshop } from '../../../core/models/models';
             <label>Calificación mínima</label>
             <div class="rating-filters">
               <button *ngFor="let r of [5,4,3,2]" class="rating-btn" [class.active]="filters.min_rating === r" (click)="setRating(r)">
-                {{ '⭐'.repeat(r) }} {{ r }}+
+                {{ r }} estrellas+
               </button>
             </div>
           </div>
           <div class="filter-group">
             <label>Ubicación</label>
-            <button class="btn btn-ghost btn-sm" (click)="useLocation()" style="width:100%">📍 Usar mi ubicación</button>
+            <button class="btn btn-ghost btn-sm" (click)="useLocation()" style="width:100%">Usar mi ubicación</button>
             <p class="loc-status" *ngIf="locationStatus">{{ locationStatus }}</p>
           </div>
           <button class="btn btn-outline btn-sm" (click)="clearFilters()" style="width:100%;margin-top:8px">Limpiar filtros</button>
@@ -61,8 +61,8 @@ import { Workshop } from '../../../core/models/models';
             <div class="card workshop-card fade-in-up" *ngFor="let w of workshops" [routerLink]="['/talleres', w.id]">
               <div class="card-img" [style.backgroundImage]="'url('+(getImageUrl(w))+')'">
                 <div class="card-overlay"></div>
-                <div class="card-rating">⭐ {{ w.rating | number:'1.1-1' }}</div>
-                <div class="card-dist" *ngIf="w.distance">📍 {{ w.distance | number:'1.1-1' }} km</div>
+                <div class="card-rating">{{ w.rating | number:'1.1-1' }}</div>
+                <div class="card-dist" *ngIf="w.distance">{{ w.distance | number:'1.1-1' }} km</div>
               </div>
               <div class="card-body">
                 <h3>{{ w.name }}</h3>
@@ -78,7 +78,7 @@ import { Workshop } from '../../../core/models/models';
             </div>
           </div>
           <div class="empty-state" *ngIf="!loading && !workshops.length">
-            <div class="icon">🔧</div>
+            <div class="icon">-</div>
             <h3>No encontramos talleres</h3>
             <p>Intenta quitar algunos filtros</p>
           </div>
@@ -187,10 +187,10 @@ export class WorkshopListComponent implements OnInit {
       (pos) => {
         this.filters.lat = pos.coords.latitude;
         this.filters.lng = pos.coords.longitude;
-        this.locationStatus = '✓ Ordenando por cercanía';
+        this.locationStatus = 'Ordenando por cercanía';
         this.load();
       },
-      () => { this.locationStatus = '✗ No se pudo obtener la ubicación'; }
+      () => { this.locationStatus = 'No se pudo obtener la ubicación'; }
     );
   }
 
