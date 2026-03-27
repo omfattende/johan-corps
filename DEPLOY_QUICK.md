@@ -38,7 +38,7 @@ npm run build
 2. Conectar tu repositorio
 3. Configurar:
 ```yaml
-Name: autostock-backend
+Name: johan-corps
 Root Directory: backend
 Environment: PHP
 Build Command: |
@@ -55,7 +55,7 @@ Start Command: php artisan serve --host=0.0.0.0 --port=$PORT
 APP_ENV=production
 APP_DEBUG=false
 APP_KEY=(genera uno nuevo)
-APP_URL=https://autostock-backend.onrender.com
+APP_URL=https://johan-corps.onrender.com
 DB_CONNECTION=sqlite
 DB_DATABASE=database/database.sqlite
 SANCTUM_STATEFUL_DOMAINS=TU_FRONTEND.vercel.app
@@ -64,7 +64,7 @@ CORS_ALLOWED_ORIGINS=https://TU_FRONTEND.vercel.app
 
 ### Paso 4: Click "Create Web Service"
 
-**Listo!** Tu backend estará en: `https://autostock-backend.onrender.com`
+**Listo!** Tu backend estará en: `https://johan-corps.onrender.com`
 
 ---
 
@@ -75,14 +75,14 @@ CORS_ALLOWED_ORIGINS=https://TU_FRONTEND.vercel.app
 2. Settings → Environment Variables
 3. Agrega:
 ```
-API_URL=https://autostock-backend.onrender.com/api
+API_URL=https://johan-corps.onrender.com/api
 ```
 4. Re-deploy
 
 ### O editar código y push:
 Edita `frontend/src/environments/environment.prod.ts`:
 ```typescript
-apiUrl: 'https://autostock-backend.onrender.com/api'
+apiUrl: 'https://johan-corps.onrender.com/api'
 ```
 
 ```bash

@@ -50,7 +50,7 @@ NODE_VERSION = 20
 ### Paso 4: Deploy
 Click en "Deploy" y espera ~2 minutos.
 
-**Tu frontend estará en:** `https://autostock-frontend.vercel.app`
+**Tu frontend estará en:** `https://autostock.vercel.app`
 
 ---
 
@@ -64,7 +64,7 @@ Click en "Deploy" y espera ~2 minutos.
 1. Click "New" → "Web Service"
 2. Conecta tu repositorio GitHub
 3. Configuración:
-   - **Name**: `autostock-backend`
+   - **Name**: `johan-corps`
    - **Root Directory**: `backend`
    - **Environment**: `PHP`
    - **Build Command**:
@@ -85,20 +85,20 @@ Click en "Deploy" y espera ~2 minutos.
 APP_ENV = production
 APP_DEBUG = false
 APP_KEY = (generar con: php artisan key:generate --show)
-APP_URL = https://autostock-backend.onrender.com
+APP_URL = https://johan-corps.onrender.com
 
 DB_CONNECTION = sqlite
 DB_DATABASE = database/database.sqlite
 
-SANCTUM_STATEFUL_DOMAINS = autostock-frontend.vercel.app
-SESSION_DOMAIN = autostock-frontend.vercel.app
-CORS_ALLOWED_ORIGINS = https://autostock-frontend.vercel.app
+SANCTUM_STATEFUL_DOMAINS = autostock.vercel.app
+SESSION_DOMAIN = autostock.vercel.app
+CORS_ALLOWED_ORIGINS = https://autostock.vercel.app
 ```
 
 ### Paso 4: Deploy
 Click en "Create Web Service"
 
-**Tu backend estará en:** `https://autostock-backend.onrender.com`
+**Tu backend estará en:** `https://johan-corps.onrender.com`
 
 ---
 
@@ -110,7 +110,7 @@ Click en "Create Web Service"
 2. Settings → Environment Variables
 3. Agrega:
    ```
-   API_URL = https://autostock-backend.onrender.com/api
+   API_URL = https://johan-corps.onrender.com/api
    ```
 4. Re-deploy: "Redeploy" en la última versión
 
@@ -119,7 +119,7 @@ Edita `frontend/src/environments/environment.prod.ts`:
 ```typescript
 export const environment = {
   production: true,
-  apiUrl: 'https://autostock-backend.onrender.com/api'
+  apiUrl: 'https://johan-corps.onrender.com/api'
 };
 ```
 
