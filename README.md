@@ -88,3 +88,4 @@ npm start
 | POST | `/api/auth/register` | Registro |
 | POST | `/api/auth/login` | Login |
 | POST | `/api/reviews` | Crear reseña *(auth requerida)* |
+ 
