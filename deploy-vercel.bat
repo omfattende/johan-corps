@@ -4,7 +4,7 @@ echo ===============================
 echo.
 
 echo Verificando build...
-if not exist "frontend\dist\mecanica-web-frontend\browser\index.html" (
+if not exist "frontend\dist\autostock-frontend\browser\index.html" (
     echo Compilando frontend...
     cd frontend
     call npm run build
@@ -22,7 +22,7 @@ echo Cuando te pregunte, selecciona:
 echo   - Framework: Angular
 echo   - Root Directory: frontend
 echo   - Build Command: npm run build
-echo   - Output Directory: dist/mecanica-web-frontend/browser
+echo   - Output Directory: dist/autostock-frontend/browser
 echo.
 
 call npx vercel --prod

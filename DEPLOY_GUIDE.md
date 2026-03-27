@@ -40,7 +40,7 @@ git push -u origin main
 2. En "Root Directory" escribe: `frontend`
 3. Framework Preset: `Angular`
 4. Build Command: `npm run build`
-5. Output Directory: `dist/mecanica-web-frontend/browser`
+5. Output Directory: `dist/autostock-frontend/browser`
 
 ### Paso 3: Variables de entorno (Environment Variables)
 ```
@@ -141,7 +141,7 @@ git push
 4. Build settings:
    - Base directory: `frontend`
    - Build command: `npm run build`
-   - Publish directory: `dist/mecanica-web-frontend/browser`
+   - Publish directory: `dist/autostock-frontend/browser`
 
 ### Railway (Backend)
 1. Ve a https://railway.app
@@ -159,7 +159,7 @@ Para hosting tradicional como Hostinger, Bluehost, etc.
 ```bash
 cd frontend
 npm run build
-# Subir contenido de dist/mecanica-web-frontend/browser a public_html
+# Subir contenido de dist/autostock-frontend/browser a public_html
 ```
 
 ### Backend (Subir por FTP)

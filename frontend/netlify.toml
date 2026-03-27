@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/mecanica-web-frontend/browser"
+  publish = "dist/autostock-frontend/browser"
   command = "npm run build"
 
 [[redirects]]

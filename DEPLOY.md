@@ -114,12 +114,12 @@ npm install
 npm run build -- --configuration production
 
 # Los archivos compilados estarán en:
-# frontend/dist/mecanica-web-frontend/
+# frontend/dist/autostock-frontend/
 ```
 
 #### Deploy del frontend:
 
-Sube el contenido de `frontend/dist/mecanica-web-frontend/` a tu hosting estático:
+Sube el contenido de `frontend/dist/autostock-frontend/` a tu hosting estático:
 - Vercel
 - Netlify
 - GitHub Pages
