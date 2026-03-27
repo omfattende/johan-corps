@@ -46,4 +46,5 @@ CMD echo "APP_NAME=JohanCorps" > .env \
     && echo "QUEUE_DRIVER=sync" >> .env \
     && echo "CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS}" >> .env \
     && php artisan migrate --force --no-interaction \
+    && php artisan db:seed --force --no-interaction \
     && php artisan serve --host 0.0.0.0 --port 10000
